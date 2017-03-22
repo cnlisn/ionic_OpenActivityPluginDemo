@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.test.openpage.plugin" version="0.0.1" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>OpenPagePlugin</name>
+    <js-module name="OpenPagePlugin" src="www/OpenPagePlugin.js">
+        <clobbers target="OpenPagePlugin" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="OpenPagePlugin">
+                <param name="android-package" value="com.test.openpage.plugin.OpenPagePlugin" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.test.openpage.Main2Activity"></activity>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="src/android/OpenPagePlugin.java" target-dir="src/com/test/openpage/plugin/OpenPagePlugin" />
+        <source-file src="src/android/Main2Activity.java" target-dir="src/com/test/openpage" />
+        <source-file src="src/android/res/layout/activity_main2.xml" target-dir="res/layout" />
+    </platform>
+</plugin>
